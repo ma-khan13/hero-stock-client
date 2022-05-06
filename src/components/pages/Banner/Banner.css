@@ -1,0 +1,9 @@
+.banner-item{
+    height: 400px;
+    background-color: #0E1918;
+}
+.banner-item img{
+    height: 100%;
+    object-fit: cover;
+    
+}

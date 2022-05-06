@@ -1,4 +1,3 @@
-import { Container } from 'react-bootstrap';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home/Home';
@@ -11,7 +10,6 @@ function App() {
   return (
     <div>
       <Navbar></Navbar>
-      <Container>
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
           <Route path="/home" element={<Home></Home>}></Route>
@@ -19,7 +17,6 @@ function App() {
           <Route path="/blog" element={<Blog></Blog>}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
-      </Container>
       <Footer></Footer>
     </div>
   );
