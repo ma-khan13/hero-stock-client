@@ -99,7 +99,7 @@ const AddStock = () => {
                 required
               />
             </div>
-            <div className="col-md-6">
+            <div className="col-lg-12">
               <label className="form-label">Description</label>
               <textarea
                 name="description"
@@ -107,7 +107,8 @@ const AddStock = () => {
                 id=""
                 cols="80"
                 rows="10"
-                required
+                              required
+                              style={{ maxWidth: '100%' }}
               ></textarea>
             </div>
           </div>

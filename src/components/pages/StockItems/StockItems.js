@@ -5,10 +5,11 @@ const StockItems = () => {
 
   let [stockItems, setStockItems] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/stock-item")
+        fetch("http://localhost:5000/stock-items")
           .then((res) => res.json())
           .then((data) => setStockItems(data));
     }, [])
+  console.log(stockItems);
     return (
       <div>
         <Container className="py-5">

@@ -1,15 +1,19 @@
 import React from 'react';
 import { Col} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const StockItem = ({ stockItem }) => {
+  const navigate = useNavigate();
     let {_id, name, imageUrl, price, description, quantity, supplier } = stockItem;
     let lowStock;
     let stockOut;
     if (quantity <= 5 || quantity === 0) {
         lowStock = ` ${ quantity} Low`;
         stockOut = " Stock Out";
-    }
+  }
+  const navigateToManageStock = id => {
+    navigate(`/manage/${_id}`);
+  }
     return (
       <Col md={12} lg={12}>
         <div className="mx-auto card mb-3">
@@ -57,9 +61,9 @@ const StockItem = ({ stockItem }) => {
                     </p>
                   </div>
                   <div>
-                    <Link to={`/manage/${_id}`} className="btn btn-warning">
+                    <button onClick={()=>navigateToManageStock(_id)} className="btn btn-warning">
                       Manage Stock
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
