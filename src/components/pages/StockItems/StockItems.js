@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import {Container, Row } from 'react-bootstrap';
 import StockItem from '../StockItem/StockItem'
 const StockItems = () => {
 
-    let [stockItems, setStockItems] = useState([]);
+  let [stockItems, setStockItems] = useState([]);
     useEffect(() => {
-        fetch('stock_item.json')
-            .then(res => res.json())
-            .then(data => setStockItems(data))
-    },[])
+        fetch("http://localhost:5000/stock-item")
+          .then((res) => res.json())
+          .then((data) => setStockItems(data));
+    }, [])
     return (
       <div>
         <Container className="py-5">

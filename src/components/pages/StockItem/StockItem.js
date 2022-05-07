@@ -3,7 +3,7 @@ import { Col} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const StockItem = ({ stockItem }) => {
-    let {_id, name, picture, price, description, quantity, supplier } = stockItem;
+    let {_id, name, imageUrl, price, description, quantity, supplier } = stockItem;
     let lowStock;
     let stockOut;
     if (quantity <= 5 || quantity === 0) {
@@ -16,8 +16,8 @@ const StockItem = ({ stockItem }) => {
           <div className="row g-0">
             <div className="col-sm-4 col-lg-3">
               <img
-                className="img-fluid"
-                src={picture}
+                className="img-fluid px-2"
+                src={imageUrl}
                 alt=""
                 style={{ height: "250px", objectFit: "cover" }}
               />
@@ -26,7 +26,9 @@ const StockItem = ({ stockItem }) => {
               <div className="card-body">
                 <h5 className="card-title">{name}</h5>
                 <p className="card-text">
-                  {description.length >= 250? description.slice(0, 250) + "....." :description }
+                  {description.length >= 250
+                    ? description.slice(0, 250) + "....."
+                    : description}
                 </p>
                 <div className="d-flex justify-content-between align-items-center">
                   <div>

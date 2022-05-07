@@ -3,24 +3,42 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firbase/firbase.init";
 
 const AddStock = () => {
-    const [user] =useAuthState(auth)
+  const [user] = useAuthState(auth);
   const titleRef = useRef();
   const descriptionRef = useRef();
   const imageUrlRef = useRef();
   const priceRef = useRef();
   const quantityRef = useRef();
   const supplierRef = useRef();
-    let handleAddStock = (e) => {
-        e.preventDefault();
-        let title = titleRef.current.value;
-        let description = descriptionRef.current.value;
-        let imageUrl = imageUrlRef.current.value;
-        let price = priceRef.current.value;
-        let quantity = quantityRef.current.value;
-        let supplier = supplierRef.current.value;
-        let email = user?.email;
-
-        e.target.reset();
+  let handleAddStock = (e) => {
+    e.preventDefault();
+    let title = titleRef.current.value;
+    let description = descriptionRef.current.value;
+    let imageUrl = imageUrlRef.current.value;
+    let price = priceRef.current.value;
+    let quantity = quantityRef.current.value;
+    let supplier = supplierRef.current.value;
+    let email = user?.email;
+    let itemDetails = {
+      title,
+      description,
+      imageUrl,
+      price,
+      quantity,
+      supplier,
+      email,
+    };
+    const url = "http://localhost:5000/add-stock-item";
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(itemDetails),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+    e.target.reset();
   };
   return (
     <div className="container mt-4">
@@ -32,9 +50,7 @@ const AddStock = () => {
           <h3 className="text-uppercase mb-3">Add New Stock Item</h3>
           <div className="row g-3">
             <div className="col-md-12">
-              <label  className="form-label">
-                Product Title
-              </label>
+              <label className="form-label">Product Title</label>
               <input
                 type="text"
                 ref={titleRef}
@@ -44,9 +60,7 @@ const AddStock = () => {
               />
             </div>
             <div className="col-md-6">
-              <label className="form-label">
-                Supplier Name
-              </label>
+              <label className="form-label">Supplier Name</label>
               <input
                 type="text"
                 ref={supplierRef}
@@ -56,9 +70,7 @@ const AddStock = () => {
               />
             </div>
             <div className="col-md-3">
-              <label className="form-label">
-                Pirce
-              </label>
+              <label className="form-label">Pirce</label>
               <input
                 type="number"
                 ref={priceRef}
@@ -68,9 +80,7 @@ const AddStock = () => {
               />
             </div>
             <div className="col-md-3">
-              <label className="form-label">
-                Quantity
-              </label>
+              <label className="form-label">Quantity</label>
               <input
                 type="number"
                 ref={quantityRef}
@@ -80,9 +90,7 @@ const AddStock = () => {
               />
             </div>
             <div className="col-md-9">
-              <label className="form-label">
-                Image Url
-              </label>
+              <label className="form-label">Image Url</label>
               <input
                 type="text"
                 ref={imageUrlRef}
@@ -92,9 +100,7 @@ const AddStock = () => {
               />
             </div>
             <div className="col-md-6">
-              <label className="form-label">
-                Description
-              </label>
+              <label className="form-label">Description</label>
               <textarea
                 name="description"
                 ref={descriptionRef}
