@@ -8,6 +8,7 @@ import {
   useSendEmailVerification,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
+import SocialSignin from '../SocialSignin/SocialSignin';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -82,6 +83,7 @@ const SignUp = () => {
                 If you already have an account,
                 <Link to={"/signin"}> Now Sign-In</Link>
               </p>
+              <SocialSignin></SocialSignin>
             </Col>
           </Row>
         </Container>

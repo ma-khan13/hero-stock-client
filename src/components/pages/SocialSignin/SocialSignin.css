@@ -1,0 +1,26 @@
+.google button {
+    display: flex;
+    margin: 20px auto;
+    align-items: center;
+    border: none;
+    padding: 10px 100px;
+    border-radius: 7px;
+}
+
+.google button img {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+.or {
+    display: flex;
+    align-items: center;
+}
+
+.left,
+.right {
+    height: 2px;
+    display: block;
+    background-color: rgb(203, 220, 220);
+}

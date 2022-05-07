@@ -2,8 +2,9 @@ import React, { useRef, useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast} from 'react-toastify';
 import auth from '../../../firbase/firbase.init';
+import SocialSignin from '../SocialSignin/SocialSignin';
 import './SignIn.css'
 const SignIn = () => {
     const location = useLocation();
@@ -27,12 +28,13 @@ const SignIn = () => {
     navigate(from, { replace: true });
   }
 let [emptyField , setEmptyField] = useState('')
-  const [sendPasswordResetEmail, sending, resetEmailError] =
+  const [sendPasswordResetEmail] =
     useSendPasswordResetEmail(auth);
   
     let handleForgotPass = async() => {
       let email = emailRef.current.value;
       if (email) {
+        setEmptyField(" ");
         await sendPasswordResetEmail(email);
         toast("Please check your email sent a resate password mail", {
           position: "top-center",
@@ -93,17 +95,7 @@ let [emptyField , setEmptyField] = useState('')
               <p className="mt-2">
                 Create a new account, <Link to={"/signup"}>Sign-Up Now</Link>
               </p>
-              <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-              />
+              <SocialSignin></SocialSignin>
             </Col>
           </Row>
         </Container>
