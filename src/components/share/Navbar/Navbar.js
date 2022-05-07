@@ -1,7 +1,15 @@
 import { useState } from "react";
+import { signOut } from "firebase/auth";
 import { Link } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firbase/firbase.init";
 const Navbar = () => {
-      const [showMediaIcons, setShowMediaIcons] = useState(true);
+  const [showMediaIcons, setShowMediaIcons] = useState(true);
+  let [user] = useAuthState(auth);
+  let handleSignOut = () => {
+    signOut(auth);
+  };
+  let userName = auth?.currentUser?.displayName;
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
@@ -37,12 +45,33 @@ const Navbar = () => {
               </li>
             </ul>
             <div className="text-start">
-              <Link to="/signin" className="btn btn-outline-light me-2">
-                Sign-in
-              </Link>
-              <Link to='/signup' className="btn btn-warning">
-                Sign-up
-              </Link>
+              {user ? (
+                <div className="d-flex">
+                  <ul className="navbar-nav me-auto">
+                    <li className="nav-item">
+                      <Link to="/" className="nav-link">
+                        {userName}
+                      </Link>
+                    </li>
+                  </ul>
+                  <Link
+                    to="/"
+                    onClick={handleSignOut}
+                    className="btn btn-outline-warning"
+                  >
+                    Signi-Out
+                  </Link>
+                </div>
+              ) : (
+                <>
+                  <Link to="/signin" className="btn btn-outline-light me-2">
+                    Sign-In
+                  </Link>
+                  <Link to="/signup" className="btn btn-warning">
+                    Sign-Up
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

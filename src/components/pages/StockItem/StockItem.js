@@ -1,8 +1,9 @@
 import React from 'react';
 import { Col} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const StockItem = ({ stockItem }) => {
-    let { name, picture, price, description, quantity, supplier } = stockItem;
+    let {_id, name, picture, price, description, quantity, supplier } = stockItem;
     let lowStock;
     let stockOut;
     if (quantity <= 5 || quantity === 0) {
@@ -54,9 +55,9 @@ const StockItem = ({ stockItem }) => {
                     </p>
                   </div>
                   <div>
-                    <button type="button" className="btn btn-warning">
+                    <Link to={`/manage/${_id}`} className="btn btn-warning">
                       Manage Stock
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
