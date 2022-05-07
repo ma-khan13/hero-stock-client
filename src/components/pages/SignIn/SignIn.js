@@ -1,22 +1,57 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import auth from '../../../firbase/firbase.init';
 import './SignIn.css'
 const SignIn = () => {
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+    const navigate = useNavigate();
     const emailRef = useRef("");
-    const passwordRef = useRef("");
-    let handleSignInForm = () => { }
-    let handleForgotPass = () => {
-        
+  const passwordRef = useRef("");
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  let handleSignInForm = async (e) => {
+      e.preventDefault();
+      let email = emailRef.current.value;
+      let password = passwordRef.current.value;
+      await signInWithEmailAndPassword(email, password);
+  }
+  let signinError;
+  if (error) {
+    signinError = error?.message;
+  }
+  if (user) {
+    navigate(from, { replace: true });
+  }
+let [emptyField , setEmptyField] = useState('')
+  const [sendPasswordResetEmail, sending, resetEmailError] =
+    useSendPasswordResetEmail(auth);
+  
+    let handleForgotPass = async() => {
+      let email = emailRef.current.value;
+      if (email) {
+        await sendPasswordResetEmail(email);
+        toast("Please check your email sent a resate password mail", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      } else {
+        setEmptyField("The email field is empty");
+      }
     }
     return (
       <div>
         <Container>
           <Row>
-            <Col
-              md={6}
-              className="mx-auto mt-5 sign-in-container"
-            >
+            <Col md={6} className="mx-auto mt-5 sign-in-container">
               <h2 className="mt-3 mb-4 text-uppercase">Welcome back</h2>
               <Form onSubmit={handleSignInForm}>
                 <Form.Group className="mb-3" controlId="formGroupEmail">
@@ -36,8 +71,18 @@ const SignIn = () => {
                     placeholder="Password"
                     required
                   />
+                  {signinError ? (
+                    <p className="text-danger">{signinError}</p>
+                  ) : (
+                    ""
+                  )}
+                  {emptyField ? (
+                    <p className="text-danger">{emptyField}</p>
+                  ) : (
+                    ""
+                  )}
                 </Form.Group>
-                <Button variant="link" onClick={handleForgotPass}>
+                <Button className='mb-3' variant="link" onClick={handleForgotPass}>
                   Forgot your password?
                 </Button>
                 <br />
@@ -48,6 +93,17 @@ const SignIn = () => {
               <p className="mt-2">
                 Create a new account, <Link to={"/signup"}>Sign-Up Now</Link>
               </p>
+              <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              />
             </Col>
           </Row>
         </Container>
