@@ -38,8 +38,26 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
+              {user ? (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/addstock">
+                    Add Stock
+                  </Link>
+                </li>
+              ) : (
+                ""
+              )}
+              {user ? (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/mystock">
+                    My Stock
+                  </Link>
+                </li>
+              ) : (
+                ""
+              )}
               <li className="nav-item">
-                <Link className="nav-link" to="blog">
+                <Link className="nav-link" to="/blog">
                   Blog
                 </Link>
               </li>

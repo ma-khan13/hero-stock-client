@@ -2,7 +2,9 @@ import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import './App.css';
+import AddStock from './components/AddStock/AddStock';
 import Home from './components/Home/Home';
+import MyStock from './components/MyStock/MyStock';
 import Blog from './components/pages/Blog/Blog';
 import ManageStock from './components/pages/ManageStock/ManageStock';
 import SignIn from './components/pages/SignIn/SignIn';
@@ -20,6 +22,17 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
+        <Route path='/addstock' element={<RequireAuth>
+          <AddStock></AddStock>
+        </RequireAuth>}></Route>
+        <Route
+          path="/mystock"
+          element={
+            <RequireAuth>
+              <MyStock></MyStock>
+            </RequireAuth>
+          }
+        ></Route>
         <Route
           path="/manage/:id"
           element={
