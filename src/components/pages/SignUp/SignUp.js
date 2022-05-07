@@ -1,22 +1,50 @@
 import React, { useRef } from 'react';
+import auth from '../../../firbase/firbase.init';
 import { Col, Container, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.css'
+import {
+  useCreateUserWithEmailAndPassword,
+  useSendEmailVerification,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
+
 const SignUp = () => {
+  const navigate = useNavigate();
     const nameRef = useRef("");
     const emailRef = useRef("");
-    const passwordRef = useRef("");
-    let handleSignUpForm = () => {
-        
-    }
+  const passwordRef = useRef("");
+  
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [sendEmailVerification] = useSendEmailVerification(auth);
+  const [updateProfile] = useUpdateProfile(auth);
+
+    let handleSignUpForm = async(e) => {
+      e.preventDefault();
+      let name = nameRef.current.value;
+      let email = emailRef.current.value;
+      let password = passwordRef.current.value;
+      await createUserWithEmailAndPassword(email, password);
+      await updateProfile({ displayName: name });
+      await sendEmailVerification();
+  }
+  
+  let signUpError;
+  if (error) {
+    signUpError = error?.message;
+  }
+  if (loading) {
+  }
+  if (user) {
+    console.log(user);
+    return navigate("/");
+  }
     return (
       <div>
-        <Container >
+        <Container>
           <Row>
-            <Col
-              md={6}
-              className="mx-auto mt-5 sign-up-container"
-            >
+            <Col md={6} className="mx-auto mt-5 sign-up-container">
               <h2 className="mt-3 mb-4 text-uppercase">Sign-up now</h2>
               <Form onSubmit={handleSignUpForm}>
                 <Form.Group className="mb-3" controlId="formGroupName">
@@ -44,6 +72,7 @@ const SignUp = () => {
                     placeholder="Enter Password"
                     required
                   />
+                  <p className="text-danger">{signUpError}</p>
                 </Form.Group>
                 <button className="btn btn-warning" type="submit">
                   Sign Up
