@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home/Home';
 import Blog from './components/pages/Blog/Blog';
+import SignIn from './components/pages/SignIn/SignIn';
 import SignUp from './components/pages/SignUp/SignUp';
 import Footer from './components/share/Footer/Footer';
 import Navbar from './components/share/Navbar/Navbar';
@@ -17,6 +18,7 @@ function App() {
         <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
+        <Route path="/signin" element={<SignIn></SignIn>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
