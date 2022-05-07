@@ -22,7 +22,11 @@ const Navbar = () => {
           >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/home">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/home"
+                >
                   Home
                 </Link>
               </li>
@@ -33,12 +37,12 @@ const Navbar = () => {
               </li>
             </ul>
             <div className="text-start">
-              <button type="button" className="btn btn-outline-light me-2">
+              <Link to="/signin" className="btn btn-outline-light me-2">
                 Sign-in
-              </button>
-              <button type="button" className="btn btn-warning">
+              </Link>
+              <Link to='/signup' className="btn btn-warning">
                 Sign-up
-              </button>
+              </Link>
             </div>
           </div>
         </div>
