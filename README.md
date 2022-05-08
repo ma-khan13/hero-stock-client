@@ -1,7 +1,18 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Warehouse Management Website
 
+Live website link [Hero stock](https://hero-stock-21ebe.web.app).
+Live server link [Hero stock](https://pacific-garden-84350.herokuapp.com).
+### Uses package
+- React Bootstrap
+- firebase Authentication
+- React Toastify
+- React data table component
+- React Firebase-Hooks
+- Fully Responsive
+- Firebase Hosting
+- Private Route
 ## Available Scripts
 
 In the project directory, you can run:
