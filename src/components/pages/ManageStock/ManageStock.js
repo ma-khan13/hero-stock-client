@@ -12,7 +12,7 @@ const ManageStock = () => {
     manageStockItem;
  
     useEffect(() => {
-      const url = `http://localhost:5000/stock-item/${stockId.id}`;
+      const url = `https://pacific-garden-84350.herokuapp.com/stock-item/${stockId.id}`;
       fetch(url)
         .then((res) => res.json())
         .then((data) => setManageStockItem(data));
@@ -28,7 +28,7 @@ const ManageStock = () => {
   
 
   let handleQuantityUpdate = (newQuantity) => {
-    const url = `http://localhost:5000/quantity-update/${stockId.id}`;
+    const url = `https://pacific-garden-84350.herokuapp.com/quantity-update/${stockId.id}`;
     axios
       .put(url, { quantity: newQuantity})
       .then(function (response) {

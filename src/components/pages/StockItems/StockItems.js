@@ -5,7 +5,7 @@ const StockItems = () => {
 
   let [stockItems, setStockItems] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/stock-items")
+        fetch("https://pacific-garden-84350.herokuapp.com/stock-items")
           .then((res) => res.json())
           .then((data) => setStockItems(data));
     }, [])

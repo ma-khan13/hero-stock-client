@@ -5,7 +5,7 @@ import auth from '../../firbase/firbase.init';
 const MyStock = () => {
   const [user] = useAuthState(auth);
   const email = user?.email;
-  const url = `http://localhost:5000/my-stock/${email}`;
+  const url = `https://pacific-garden-84350.herokuapp.com/my-stock/${email}`;
   return (
     <div className="container my-4">
       <ManageInvantory

@@ -2,7 +2,7 @@ import React from 'react';
 import ManageInvantory from '../ManageInvantory/ManageInvantory';
 
 const ManageInvantoris = () => {
-        const url = `http://localhost:5000/stock-items`;
+        const url = `https://pacific-garden-84350.herokuapp.com/stock-items`;
   return (
     <div className="container my-4">
       <ManageInvantory

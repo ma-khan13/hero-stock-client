@@ -7,7 +7,7 @@ const ManageInvantory = ({url , tableTitle}) => {
   const [user] = useAuthState(auth);
   const [myItems, setMyItems] = useState([]);
   let email = user?.email;
-//   const url = `http://localhost:5000/my-stock/${email}`;
+//   const url = `https://pacific-garden-84350.herokuapp.com/my-stock/${email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -17,7 +17,7 @@ const ManageInvantory = ({url , tableTitle}) => {
   const handleDelete = (id) => {
     const proceed = window.confirm(`Are you sure want to delete?'`);
     if (proceed) {
-      const url = `http://localhost:5000/stock-item-delete/${id}`;
+      const url = `https://pacific-garden-84350.herokuapp.com/stock-item-delete/${id}`;
       fetch(url, {
         method: "DELETE",
       })

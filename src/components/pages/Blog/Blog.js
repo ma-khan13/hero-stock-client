@@ -3,18 +3,18 @@ import React from 'react';
 const Blog = () => {
     return (
       <div
-        className="container bg-light py-5 mt-4"
+        classNameName="container bg-light py-5 mt-4"
         style={{ borderRadius: "7px" }}
       >
-        <div className="row">
-          <div className="col-12">
-            <div class="card text-dark  mb-3">
-              <div class="card-header">
+        <div classNameName="row">
+          <div classNameName="col-12">
+            <div className="card text-dark  mb-3">
+              <div className="card-header">
                 <h2>জাভাস্ক্রিপ্ট এবং নোড জে এস এর মধ্যে পার্থক্য কি</h2>
               </div>
-              <div class="card-body">
-                <h5 class="card-title">জাভাস্ক্রিপ্ট</h5>
-                <p class="card-text">
+              <div className="card-body">
+                <h5 className="card-title">জাভাস্ক্রিপ্ট</h5>
+                <p className="card-text">
                   জাভাস্ক্রিপ্ট হল একটা স্ক্রিপ্টিং ল্যঙ্গুয়েজ যা ব্রাউজার ছাড়া
                   রান করানো যায় না । এইচটিএমএল ওয়েব পেজ কে ডায়ানামিক রুপ দিতে
                   জাভাস্ক্রিপ্ট একটি গুরুত্বপুর্ণ ভুমিকা পালন করে । যেহেতু
@@ -28,8 +28,8 @@ const Blog = () => {
                   সার্ভারে পৌছবে না । ওয়েব পেজ রিলোড করার সাথে সাথেই তা নষ্ট হয়ে
                   যাবে ।
                 </p>
-                <h5 class="card-title">নোড জে এস</h5>
-                <p class="card-text">
+                <h5 className="card-title">নোড জে এস</h5>
+                <p className="card-text">
                   নোড জে এস হলো জাভাস্ক্রিপ্ট এর একটি রান টাইম। নোড জে এস
                   সার্ভার এ রান করতে পারে । যার কারণে আমরা এখন জাভাস্ক্রিপ্ট
                   দিয়ে সার্ভার সাইট এ কাজ করতে পারি
@@ -37,26 +37,26 @@ const Blog = () => {
               </div>
             </div>
           </div>
-          <div className="col-12">
-            <div class="card text-dark  mb-3">
-              <div class="card-header">
+          <div classNameName="col-12">
+            <div className="card text-dark  mb-3">
+              <div className="card-header">
                 <h2>এসকিউএল এবং নো এসকিউএল ডাটাবেসের এর মধ্যে পার্থক্য কি</h2>
               </div>
-              <div class="card-body">
-                <p class="card-text">
+              <div className="card-body">
+                <p className="card-text">
                   আমরা জানি এসকিউএল এবং নো এসকিউএল ডাটাবেস দুটাই তথ্য সংরক্ষণ এর
                   জন্য ব্যবহার করা হয় তবে এসকিউএল এবং নো এসকিউএল ডাটাবেস এর
                   মধ্যে কিছু পার্থক্ষ আছে
                 </p>
-                <h5 class="card-title">এসকিউএল</h5>
-                <p class="card-text">
+                <h5 className="card-title">এসকিউএল</h5>
+                <p className="card-text">
                   এসকিউএল ডাটাবেস হলো একটি রিলেশনাল ডাটাবেস। রিলেশনাল ডাটাবেস
                   মানে রিলেশনাল ডাটাবেস ডাটা গুলো টেবিল আকারে থাকে। আর এই টেবিল
                   গুলো একটা আর একটি টেবিল আর ডাটার সাথে রিলেশন তৈরী করতে পারে ।
                   এতে করে ডাটা গুলো অনেক সহজে ম্যানেজ করা যাই
                 </p>
-                <h5 class="card-title">নো এসকিউএল</h5>
-                <p class="card-text">
+                <h5 className="card-title">নো এসকিউএল</h5>
+                <p className="card-text">
                   নো এসকিউএল ডাটাবেস হলো একটি নন রিলেশনাল ডাটাবেস। নাম শুনেই
                   বুঝা যাচ্ছে যে নো এসকিউএল ডাটাবেস অন্য কোনো ডাটার সাথে সম্পর্ক
                   করতে পারে না । নো এসকিউএল ডাটাবেস মূলত ডাটা গুলো অবজেক্ট আকারে
@@ -67,21 +67,21 @@ const Blog = () => {
               </div>
             </div>
           </div>
-          <div className="col-12">
-            <div class="card text-dark  mb-3">
-              <div class="card-header">
+          <div classNameName="col-12">
+            <div className="card text-dark  mb-3">
+              <div className="card-header">
                 <h2>JWT এর উদ্দেশ্য কি এবং এটি কিভাবে কাজ করে</h2>
               </div>
-              <div class="card-body">
-                <h5 class="card-title">JWT এর উদ্দেশ্য কি ?</h5>
-                <p class="card-text">
+              <div className="card-body">
+                <h5 className="card-title">JWT এর উদ্দেশ্য কি ?</h5>
+                <p className="card-text">
                   JWT জেক json web token বলে, JWT একটি open standard এটি client
                   এবং server এর মধ্যে নিরাপত্তা দেবার জন্য ব্যবহার করা হয় JWT তে
                   এনকোড করা JSON অবজেক্ট রয়েছে, যার মধ্যে client এর তথ্য
                   রয়েছে।
                 </p>
-                <h5 class="card-title">JWT কিভাবে কাজ করে ?</h5>
-                <p class="card-text">
+                <h5 className="card-title">JWT কিভাবে কাজ করে ?</h5>
+                <p className="card-text">
                   JWT যে ভাবে কাজ করে । jwt মূলত একটা token তৈরী করে সেই টোকেন এ
                   তিনটা অংশ থাকে একটা header payload singature প্রতিটা অংশ dot
                   দিয়ে আলাদা করা থাকে ।

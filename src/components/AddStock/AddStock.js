@@ -31,7 +31,7 @@ const AddStock = () => {
       supplier,
       email,
     };
-    const url = "http://localhost:5000/add-stock-item";
+    const url = "https://pacific-garden-84350.herokuapp.com/add-stock-item";
     fetch(url, {
       method: "POST",
       headers: {
