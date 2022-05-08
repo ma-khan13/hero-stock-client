@@ -9,7 +9,6 @@ const StockItems = () => {
           .then((res) => res.json())
           .then((data) => setStockItems(data));
     }, [])
-  console.log(stockItems);
     return (
       <div>
         <Container className="py-5">

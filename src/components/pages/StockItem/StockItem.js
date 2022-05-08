@@ -28,7 +28,9 @@ const StockItem = ({ stockItem }) => {
             </div>
             <div className="col-sm-8 col-lg-9">
               <div className="card-body">
-                <h5 className="card-title">{name}</h5>
+                <h3 className="card-title">
+                  <strong>{name}</strong>
+                </h3>
                 <p className="card-text">
                   {description.length >= 250
                     ? description.slice(0, 250) + "....."
@@ -61,7 +63,10 @@ const StockItem = ({ stockItem }) => {
                     </p>
                   </div>
                   <div>
-                    <button onClick={()=>navigateToManageStock(_id)} className="btn btn-warning">
+                    <button
+                      onClick={() => navigateToManageStock(_id)}
+                      className="btn btn-warning"
+                    >
                       Manage Stock
                     </button>
                   </div>
