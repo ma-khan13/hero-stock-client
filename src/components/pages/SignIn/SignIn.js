@@ -6,6 +6,7 @@ import { toast} from 'react-toastify';
 import auth from '../../../firbase/firbase.init';
 import SocialSignin from '../SocialSignin/SocialSignin';
 import './SignIn.css'
+const axios = require("axios").default;
 const SignIn = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
@@ -14,18 +15,23 @@ const SignIn = () => {
   const passwordRef = useRef("");
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  
   let handleSignInForm = async (e) => {
       e.preventDefault();
       let email = emailRef.current.value;
       let password = passwordRef.current.value;
-      await signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
+    
+    const { data } = await axios.post("http://localhost:5000/login", { email });
+    localStorage.setItem('accessToken', data.accessToken);
+    navigate(from, { replace: true });
   }
   let signinError;
   if (error) {
     signinError = error?.message;
   }
   if (user) {
-    navigate(from, { replace: true });
+    // navigate(from, { replace: true });
   }
 let [emptyField , setEmptyField] = useState('')
   const [sendPasswordResetEmail] =

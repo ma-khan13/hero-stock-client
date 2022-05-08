@@ -20,6 +20,7 @@ const ManageInvantory = ({url , tableTitle}) => {
       const url = `https://pacific-garden-84350.herokuapp.com/stock-item-delete/${id}`;
       fetch(url, {
         method: "DELETE",
+        headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` },
       })
         .then((res) => res.json())
         .then((data) => {
