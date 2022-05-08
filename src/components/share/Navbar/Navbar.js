@@ -40,6 +40,15 @@ const Navbar = () => {
               </li>
               {user ? (
                 <li className="nav-item">
+                  <Link className="nav-link" to="/manage-invantory">
+                    Manage Inventory
+                  </Link>
+                </li>
+              ) : (
+                ""
+              )}
+              {user ? (
+                <li className="nav-item">
                   <Link className="nav-link" to="/addstock">
                     Add Stock
                   </Link>

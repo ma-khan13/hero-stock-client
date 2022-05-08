@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import './App.css';
 import AddStock from './components/AddStock/AddStock';
 import Home from './components/Home/Home';
+import ManageInvantoris from './components/ManageInvantoris/ManageInvantoris';
 import MyStock from './components/MyStock/MyStock';
 import Blog from './components/pages/Blog/Blog';
 import ManageStock from './components/pages/ManageStock/ManageStock';
@@ -22,9 +23,22 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
-        <Route path='/addstock' element={<RequireAuth>
-          <AddStock></AddStock>
-        </RequireAuth>}></Route>
+        <Route
+          path="/addstock"
+          element={
+            <RequireAuth>
+              <AddStock></AddStock>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/manage-invantory"
+          element={
+            <RequireAuth>
+              <ManageInvantoris></ManageInvantoris>
+            </RequireAuth>
+          }
+        ></Route>
         <Route
           path="/mystock"
           element={

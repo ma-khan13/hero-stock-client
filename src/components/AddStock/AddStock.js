@@ -1,8 +1,11 @@
 import React, { useRef } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../firbase/firbase.init";
 
 const AddStock = () => {
+  const navigate = useNavigate()
   const [user] = useAuthState(auth);
   const titleRef = useRef();
   const descriptionRef = useRef();
@@ -37,7 +40,10 @@ const AddStock = () => {
       body: JSON.stringify(itemDetails),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        navigate("/manage-invantory");
+        toast.success("Item added successfuly")
+      });
     e.target.reset();
   };
   return (
