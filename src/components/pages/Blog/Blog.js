@@ -3,11 +3,11 @@ import React from 'react';
 const Blog = () => {
     return (
       <div
-        classNameName="container bg-light py-5 mt-4"
+        className="container bg-light py-5 mt-4"
         style={{ borderRadius: "7px" }}
       >
-        <div classNameName="row">
-          <div classNameName="col-12">
+        <div className="row">
+          <div className="col-12">
             <div className="card text-dark  mb-3">
               <div className="card-header">
                 <h2>জাভাস্ক্রিপ্ট এবং নোড জে এস এর মধ্যে পার্থক্য কি</h2>
@@ -37,7 +37,7 @@ const Blog = () => {
               </div>
             </div>
           </div>
-          <div classNameName="col-12">
+          <div className="col-12">
             <div className="card text-dark  mb-3">
               <div className="card-header">
                 <h2>এসকিউএল এবং নো এসকিউএল ডাটাবেসের এর মধ্যে পার্থক্য কি</h2>
@@ -67,7 +67,7 @@ const Blog = () => {
               </div>
             </div>
           </div>
-          <div classNameName="col-12">
+          <div className="col-12">
             <div className="card text-dark  mb-3">
               <div className="card-header">
                 <h2>JWT এর উদ্দেশ্য কি এবং এটি কিভাবে কাজ করে</h2>

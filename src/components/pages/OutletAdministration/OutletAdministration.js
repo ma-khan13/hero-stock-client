@@ -2,8 +2,8 @@ import React from 'react';
 import Outlet from "../../../images/store-management-retail.png";
 const OutletAdministration = () => {
    return (
-     <div classNameName="container mt-5">
-       <div classNameName="row">
+     <div className="container mt-5">
+       <div className="row">
          <div className="card" style={{ height: "500px" }}>
            <img
              src={Outlet}
